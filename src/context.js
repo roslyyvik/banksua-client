@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useContext, useState, useEffect, useCallback } from 'react';
 const AppContext = React.createContext();
-// const rootUrl = 'http://localhost:5000'
+const rootUrl = 'https://banksua-api.onrender.com'
 
 const AppProvider = ({children}) => {
 
@@ -27,7 +27,7 @@ const AppProvider = ({children}) => {
   const getBanks = useCallback( async () => {
     setLoading(true)
     try {
-      const response = await axios('https://banksua-api.onrender.com/api/v1/banks')
+      const response = await axios(`${rootUrl}/api/v1/banks`)
       const { banks } = response.data
       if(banks){
         const newBanks = banks.map((item) => {
@@ -76,7 +76,7 @@ const AppProvider = ({children}) => {
   const getIndicators = async () => {
     setLoading(true)
     try {
-      const response = await axios.get('https://banksua-api.onrender.com/api/v1/indicators')
+      const response = await axios.get(`${rootUrl}/api/v1/indicators`)
       setIndicators(response.data)
       setLoading(false)
     } catch (e) {
