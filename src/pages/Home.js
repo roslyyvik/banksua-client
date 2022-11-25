@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context'
 import BankItem from '../components/BankItem'
-import { useIdFetch } from '../hooks/useIdFetch'
+// import { useIdFetch } from '../hooks/useIdFetch'
 
 const Home = () => {
-  const {data, loading} = useGlobalContext()
+  const {banks, loading} = useGlobalContext()
   // const {data, loading} = useIdFetch()
-  const [ banks, setBanks ] = useState([])
+  const [ services, setServices ] = useState([])
 
   useEffect(() => {
-    setBanks(data)
-  },[loading, data])
+    setServices(banks)
+  },[loading, banks])
 
   if(loading){
     return <p>loading...</p>
@@ -18,16 +18,15 @@ const Home = () => {
   return (
     <section className=''>
       <h2>Banks </h2>
-      <>
-        {banks.map((bank) => {
-            return(
-              <BankItem key={bank.MFO} {...bank} />
-            )
-          })
-        }
-      </>
-
-
+        <div>
+          {services.map((bank) => {
+              return (
+                <BankItem key={bank.mfo} {...bank} />
+              )
+            })
+          }
+        </div>
+        
     </section>
   )
 }

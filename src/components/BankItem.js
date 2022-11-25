@@ -5,10 +5,10 @@ const BankItem = (props) => {
   return (
     <div>
       <ul>
-        <li>Назва: {props.SHORTNAME}</li>
-        <li>Код ЄДРПОУ: {props.KOD_EDRPOU}</li>
-        <li>МФО: {props.MFO}</li>
-        <li>Адреса: {props.NP},{props.ADRESS}, {props.P_IND}</li>
+        <li>Назва: {props.brand}</li>
+        <li>Код ЄДРПОУ: {props.kod}</li>
+        <li>МФО: {props.mfo}</li>
+        <li>Адреса: {props.np},{props.adress}, {props.postindex}</li>
         <li>Банківська група: {props.group}</li>
       </ul>
     </div>
