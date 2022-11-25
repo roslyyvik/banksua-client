@@ -8,7 +8,6 @@ const AppProvider = ({children}) => {
   // const { mfo } = useParams()
   const [loading, setLoading] = useState(true)
   const [ banks, setBanks ] = useState([])
-  const [ bank, setBank ] = useState()
   const [ indicators, setIndicators ] = useState([])
 
   const getBanks = useCallback( async () => {
@@ -48,19 +47,21 @@ const AppProvider = ({children}) => {
     }
   },[])
 
-  // const getBank = async (MFO) => {
+  // const getBank =useCallback(
+  //   async (mfo) => {
   //   setLoading(true)
   //   try {
-  //     const response = await axios.get(`https://banksua-api.onrender.com/api/v1/banks/${MFO}`)
+  //     const response = await axios.get(`${rootUrl}/api/v1/banks/${mfo}`)
   //     setBank(response.data)
   //     setLoading(false)
   //   } catch (error) {
-  //     console.log(error);
+  //     console.log(error)
   //     setLoading(false)
   //   }
-  // }
+  // },[]) 
 
-  const getIndicators = async () => {
+  const getIndicators =useCallback(
+    async () => {
     setLoading(true)
     try {
       const response = await axios.get(`${rootUrl}/api/v1/indicators`)
@@ -70,12 +71,12 @@ const AppProvider = ({children}) => {
       console.log(e);
       setLoading(false)
     }
-  }
+  },[]) 
 
   useEffect(()=>{
     getBanks()
     getIndicators()
-  },[getBanks])
+  },[getBanks, getIndicators])
 
   return (
     <AppContext.Provider
