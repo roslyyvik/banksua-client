@@ -88,7 +88,7 @@ const AppProvider = ({children}) => {
   useEffect(()=>{
     getBanks()
     getIndicators()
-  },[])
+  },[getBanks])
 
   return (
     <AppContext.Provider
