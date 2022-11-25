@@ -11,19 +11,6 @@ const AppProvider = ({children}) => {
   const [ bank, setBank ] = useState()
   const [ indicators, setIndicators ] = useState([])
 
-  // const getBanks = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const response = await axios('https://banksua-api.onrender.com/api/v1/banks')
-  //     const data = response.data
-  //     setData(data)
-  //     setLoading(false)
-  //   } catch (error) {
-  //     console.log(error)
-  //     setLoading(false)
-  //   }
-  // }
-
   const getBanks = useCallback( async () => {
     setLoading(true)
     try {
