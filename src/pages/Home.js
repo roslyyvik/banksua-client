@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../context'
 import BankItem from '../components/BankItem'
 // import { useIdFetch } from '../hooks/useIdFetch'
@@ -21,7 +22,12 @@ const Home = () => {
         <div>
           {services.map((bank) => {
               return (
-                <BankItem key={bank.mfo} {...bank} />
+                <>
+                  <BankItem key={bank.mfo} {...bank} />
+                  <Link to={`/bank/${bank.mfo}`} className='btn btn-primary btn-details'>
+                    details
+                  </Link>
+                </>
               )
             })
           }

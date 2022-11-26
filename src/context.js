@@ -25,6 +25,10 @@ const AppProvider = ({children}) => {
             NP,
             ADRESS,
             P_IND,
+            assetstotal,
+            liabilities,
+            capitaltotal,
+            profittotal,
           } = item
           return {
             mfo: MFO,
@@ -33,7 +37,11 @@ const AppProvider = ({children}) => {
             group,
             np: NP,
             adress: ADRESS,
-            postindex: P_IND
+            postindex: P_IND,
+            assetstotal,
+            liabilities,
+            capitaltotal,
+            profittotal,
           }
         })
         setBanks(newBanks)
