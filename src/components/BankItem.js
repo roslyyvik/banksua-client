@@ -16,7 +16,7 @@ const BankItem = ({
 }) => {
 
   return (
-    <div>
+    <div className='banks-item-container'>
       <ul>
         <li>Назва: {brand}</li>
         <li>Код ЄДРПОУ: {kod}</li>
@@ -24,7 +24,6 @@ const BankItem = ({
         <li>Адреса: {np},{adress}, {postindex}</li>
         <li>Банківська група: {group}</li>
       </ul>
-      <div>
         <table>
         <thead>
           <tr>
@@ -59,7 +58,6 @@ const BankItem = ({
           </tr>
         </tbody>
         </table>
-      </div>
     </div>
   )
 }

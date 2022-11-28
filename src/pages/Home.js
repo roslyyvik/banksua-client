@@ -52,7 +52,7 @@ const Home = () => {
         </div>
         )}
       <section className='followers'>
-        <h2>Banks </h2>
+        <h1>Банки України </h1>
         <div className='container'>
           {search(services).map((bank) => {
               return (

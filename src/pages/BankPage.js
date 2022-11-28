@@ -69,22 +69,22 @@ const BankPage = () => {
       postindex
     } = singleBank
     return (
-      <section>
+      <main>
         <Link to='/'>back home</Link>
-        <h2>Bank: {brand}</h2>
-        <div>
-          <p>MFO: {mfo}</p>
-          <p>EDRPOU: {kod}</p>
-          <p>GROUP: {group}</p>
-          <p>ADRESS: {postindex}, {np}, {adress}  </p>
+        <h2>Установа: {brand}</h2>
+        <ul className='single-bank-container'>
+          <li>МФО: {mfo}</li>
+          <pli>КОД ЕДРПОУ: {kod}</pli>
+          <li>БАНКІВСЬКА ГРУПА: {group}</li>
+          <li>АДРЕСА: {postindex}, {np}, {adress}  </li>
           <div>
             <AssetsItem />
             <LiabilitiesItem />
             <CapitalItem />
             <ProfitItem />
           </div>
-        </div>
-      </section>
+        </ul>
+      </main>
     )
   }
 }
