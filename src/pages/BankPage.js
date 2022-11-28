@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom'
 import Loading from '../components/Loading'
+import AssetsItem from '../components/AssetsItem';
+import CapitalItem from '../components/CapitalItem';
+import LiabilitiesItem from '../components/LiabilitiesItem';
+import ProfitItem from '../components/ProfitItem';
 
 const rootUrl = 'https://banksua-api.onrender.com'
 
@@ -73,6 +77,12 @@ const BankPage = () => {
           <p>EDRPOU: {kod}</p>
           <p>GROUP: {group}</p>
           <p>ADRESS: {postindex}, {np}, {adress}  </p>
+          <div>
+            <AssetsItem />
+            <LiabilitiesItem />
+            <CapitalItem />
+            <ProfitItem />
+          </div>
         </div>
       </section>
     )

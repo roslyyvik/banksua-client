@@ -1,25 +1,31 @@
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import useToggleTheme from './hooks/useToggleTheme'
+import TopButton from './ui/button/TopButton'
+
 import Home from './pages/Home'
 import About from './pages/About'
-import TableBanks from './pages/TableBanks'
-import NotFound from './pages/NotFound'
+import Error from './pages/Error'
+import BanksTable from './pages/BanksTable'
 import BankPage from './pages/BankPage'
-import Navbar from './components/Navbar'
 
-function App() {
+const App = () => {
+  const toggleTheme = useToggleTheme()
+  
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar toggleTheme={toggleTheme}/>
+      <TopButton/>
       <Routes>
-        <Route index element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/tablebanks' element={<TableBanks/>}/>
-        <Route path="/bank/:mfo" element={<BankPage/>} />
-        <Route path='*' element={<NotFound/>}/>
+        <Route path='/about' element={<About />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/tables' element={<BanksTable />} />
+        <Route path='/bank/:mfo' element={<BankPage />} />
+        <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
-    
-  );
+  )
 }
 
-export default App;
+export default App

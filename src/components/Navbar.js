@@ -37,7 +37,7 @@ useEffect(() => {
               <Link to='/'>установи</Link>
             </li>
             <li>
-              <Link to='/tablebanks'>таблиця</Link>
+              <Link to='/tables'>таблиця</Link>
             </li>
             <li>
               <Link to='/about'>про</Link>
