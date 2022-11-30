@@ -6,6 +6,7 @@ import AssetsItem from '../components/AssetsItem';
 import CapitalItem from '../components/CapitalItem';
 import LiabilitiesItem from '../components/LiabilitiesItem';
 import ProfitItem from '../components/ProfitItem';
+import {FaAngleDoubleLeft} from 'react-icons/fa'
 
 const rootUrl = 'https://banksua-api.onrender.com'
 
@@ -70,7 +71,9 @@ const BankPage = () => {
     } = singleBank
     return (
       <main>
-        <Link to='/'>back home</Link>
+        <Link to='/'>
+        <button  className='btn btn-details'><FaAngleDoubleLeft/> back home</button>
+        </Link>
         <h2>Установа: {brand}</h2>
         <ul className='single-bank-container'>
           <li>МФО: {mfo}</li>

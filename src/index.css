@@ -466,13 +466,15 @@ thead button {
 }
 .sort-table-btn button.ascending::after,
 thead button.ascending::after {
-  content: '👇';
+  /* content: '👇'; */
+  content: '🔽';
   display: inline-block;
   margin-left: 1em;
 }
 .sort-table-btn button.descending::after,
 thead button.descending::after {
-  content: '☝️';
+  /* content: '☝️'; */
+  content: '🔼';
   display: inline-block;
   margin-left: 1em;
 }
