@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
+import { useGlobalContext } from '../context'
 import data from '../data.json'
 import useSortableData from '../hooks/useSortableData'
 import MyInput from '../ui/input/MyInput'
 import MySelect from '../ui/select/MySelect'
 import Alert from '../components/Alert'
-import useFilterableData from '../hooks/useFilterableData'
+// import useFilterableData from '../hooks/useFilterableData'
 import moneyFormatter from '../utils/format'
 // import {TbArrowsSort,TbSortAscending,TbSortDescending} from 'react-icons/tb'
 
 const BanksTable = () => {
-  const [ banks, setBanks ] = useState([])
-  const { items, requestSort, sortConfig } = useSortableData(banks)
-  const { search, q, setQ, filterParam, setFilterParam } = useFilterableData()
+  const {loading} = useGlobalContext()
+  const [ services, setServices ] = useState([])
+  const { items, requestSort, sortConfig } = useSortableData(services)
+  const [q, setQ] = useState("");
+const [ searchParam ] = useState(['group','SHORTNAME','MFO'])
+const [ filterParam, setFilterParam ] = useState('All')
 
   const getClassNamesFor = ( name ) => {
     if(!sortConfig) {
@@ -22,8 +26,28 @@ const BanksTable = () => {
   }
 
   useEffect(() => {
-    setBanks(data)
-  },[])
+    if (loading) return
+    setServices(data)
+  },[loading])
+
+  const search = useCallback(
+    elems => {
+      return elems.filter(elem => {
+        if(elem.group === filterParam || filterParam === "All"){
+          return searchParam.some(newElem => {
+            return (
+              elem[newElem]
+              .toString()
+              .toLowerCase()
+              .indexOf(q.toLowerCase()) > -1
+              // .includes(q.toLowerCase())
+            )
+          })
+        }
+        return ''
+      })
+    }, [filterParam, q, searchParam]
+  )
 
   const searchLength = search((items).map((item) => {
     return item

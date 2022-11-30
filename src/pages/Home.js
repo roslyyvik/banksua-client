@@ -12,14 +12,14 @@ import {FaAngleDoubleRight} from 'react-icons/fa'
 const Home = () => {
   const {banks, loading} = useGlobalContext()
   const [ services, setServices ] = useState([])
-  const { search, q, setQ, filterParam, setFilterParam } = useFilterableData()
+  const { search, q, setQ, filterParam, setFilterParam } = useFilterableData('')
 
   useEffect(() => {
     if (loading) return
     setServices(banks)
   },[loading, banks])
 
-  const searchLength = search((banks).map((item) => {
+  const searchLength = search((services).map((item) => {
     return item
   }))
 

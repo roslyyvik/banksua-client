@@ -61,7 +61,7 @@ const AppProvider = ({children}) => {
     <AppContext.Provider
       value={{
         loading,
-        banks
+        banks,
       }}
     >
       { children }

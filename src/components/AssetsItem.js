@@ -93,9 +93,9 @@ const AssetsItem = () => {
     <div>
       <h1>АКТИВИ</h1>
         <div>
-          <div onClick={handleChartType}>
+          <div>
             {chartType ? <IndicatorLineChart chart={chart0_0} /> : <IndicatorChart chart={chart0_0} /> }
-            <button className='btn btn-type'>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
+            <button className='btn btn-type' onClick={handleChartType}>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
           </div>
           <div className='bank-item-table'>{assets0_0Table}</div>
         </div>

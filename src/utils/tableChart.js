@@ -1,23 +1,27 @@
-import React, { useState } from 'react';
+import { Chart } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
+  PointElement,
   BarElement,
+  LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend,
 } from 'chart.js';
-
-import { Bar, Chart } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
   Title,
   Tooltip,
-  Legend
+  Filler,
+  Legend,
+  PointElement,
 );
 
 export const labels = ['2020/07', '2020/10', '2021/01','2022/01', '2022/07']
