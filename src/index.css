@@ -349,6 +349,9 @@ Navbar
 }
 
 /* TABLE */
+.banks-item-container table{
+  width: 100%;
+}
 .bank-item-table,
 .table-container {
   margin: auto;
@@ -578,7 +581,7 @@ main {
 .input-section{
   display:block;
   /* margin: 0 auto; */
-  width: 60vw;
+  width: 100%;
   margin-bottom: 2rem;
 }
 
