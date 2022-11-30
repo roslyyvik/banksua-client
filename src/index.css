@@ -690,10 +690,6 @@ main {
   transition: var(--mainTransition);
 }
 
-.chart-bar {
-
-}
-
 /* toggle theme */
 input[type=checkbox] {
         height: 0;
@@ -775,10 +771,10 @@ input[type=checkbox] {
 }
 
 /* about */
-
+/* 
 .about-container {
 
-}
+} */
 
 .about-section{
   margin: 3rem auto;
