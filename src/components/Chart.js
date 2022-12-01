@@ -7,9 +7,9 @@ const Chart = ({ chart, itemName, table }) => {
   return (
     <>
       <h2>{itemName}</h2>
-      <div onClick={() => setTypeChart(!typeChart)}>
+      <div>
         {typeChart ? <IndicatorLineChart chart={chart} /> : <IndicatorChart chart={chart} /> }
-        <button className='btn btn-type'>{typeChart ? <FaChartBar/> : <FaChartLine/>}</button>
+        <button className='btn btn-type'  onClick={() => setTypeChart(!typeChart)}>{typeChart ? <FaChartBar/> : <FaChartLine/>}</button>
       </div>
       {table}
     </>

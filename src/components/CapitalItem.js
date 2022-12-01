@@ -44,9 +44,9 @@ const CapitalItem = () => {
   return (
     <div>
       <h1>КАПІТАЛ</h1>
-            <div onClick={handleChartType}>
+            <div>
               {chartType ? <IndicatorLineChart chart={capitalChart0_0} /> : <IndicatorChart chart={capitalChart0_0} /> }
-              <button className='btn btn-type'>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
+              <button onClick={handleChartType} className='btn btn-type'>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
             </div>
             <div className='bank-item-table'>{capital0_0Table}</div>
       <div className="accordian-header" onClick={() => setShow(!show)}>

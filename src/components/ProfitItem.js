@@ -77,9 +77,9 @@ const ProfitItem = () => {
   return (
     <div>
       <h1>ПРИБУТОК</h1>
-            <div onClick={handleChartType}>
+            <div>
               {chartType ? <IndicatorLineChart chart={profitChart0_0} /> : <IndicatorChart chart={profitChart0_0} /> }
-              <button className='btn btn-type'>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
+              <button onClick={handleChartType} className='btn btn-type'>{chartType ? <FaChartBar/> : <FaChartLine/>}</button>
             </div>
             <div className='bank-item-table'>{profit0_0Table}</div>
       <div className="accordian-header" onClick={() => setShow(!show)}>
