@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IndicatorChart, IndicatorLineChart } from './IndicatorChart'
-import {FaChartLine, FaChartBar, FaTable} from 'react-icons/fa'
+import {FaChartLine, FaChartBar} from 'react-icons/fa'
 
 const Chart = ({ chart, itemName, table }) => {
   const [ typeChart, setTypeChart ] = useState()
