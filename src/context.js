@@ -1,12 +1,45 @@
 import axios from 'axios';
 import React, {useContext, useState, useEffect, useCallback } from 'react';
 const AppContext = React.createContext();
-const rootUrl = 'https://banksua-api.onrender.com'
+const rootUrl = 'https://banksua-api.cyclic.app'
 
 const AppProvider = ({children}) => {
 
   const [loading, setLoading] = useState(true)
   const [ banks, setBanks ] = useState([])
+  const [ user, setUser ] = useState(null)
+
+  const saveUser = (user) => {
+    setUser(user)
+  }
+
+  const removeUser = () => {
+    setUser(null)
+  }
+
+  const fetchUser = async () => {
+    try {
+      const { data } = await axios(`${rootUrl}/api/v1/users/showMe`)
+      saveUser(data.user)
+    } catch (error) {
+      removeUser()
+    }
+    setLoading(false)
+  }
+
+  const logoutUser = async () => {
+    try {
+      await axios.delete(`${rootUrl}/api/v1/auth/logout`)
+      removeUser()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchUser()
+    //eslint-disable-next-line
+  },[])
 
   const getBanks = useCallback( async () => {
     setLoading(true)
@@ -62,6 +95,9 @@ const AppProvider = ({children}) => {
       value={{
         loading,
         banks,
+        saveUser,
+        user,
+        logoutUser
       }}
     >
       { children }

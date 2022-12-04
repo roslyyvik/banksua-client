@@ -9,6 +9,10 @@ import About from './pages/About'
 import Error from './pages/Error'
 import BanksTable from './pages/BanksTable'
 import BankPage from './pages/BankPage'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import ProtectedRoute from './pages/ProtectedRoute'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   const toggleTheme = useToggleTheme()
@@ -18,10 +22,16 @@ const App = () => {
       <Navbar toggleTheme={toggleTheme}/>
       <TopButton/>
       <Routes>
-        <Route path='/about' element={<About />} />
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/about' element={<About />} />
+        <Route element={<ProtectedRoute />} >
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/bank/:mfo' element={<BankPage />} />
+        </Route>
         <Route path='/tables' element={<BanksTable />} />
-        <Route path='/bank/:mfo' element={<BankPage />} />
+        
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo-image.svg'
 import { FaBars } from 'react-icons/fa'
+import { useGlobalContext } from '../context'
 
 const Navbar = ({ toggleTheme }) => {
+  const { user, logoutUser } = useGlobalContext()
 const [ showLinks, setShowLinks ] = useState(false)
 const linksContainerRef = useRef(null)
 const linksRef = useRef(null)
@@ -47,6 +49,19 @@ useEffect(() => {
             <input onChange={toggleTheme} type="checkbox" id="switch1" name="theme1" />
             <label for="switch1"></label>
           </div>
+          {user && (
+            <div className='nav-links'>
+              <p>hello, {user.name}</p>
+              <button
+                className='btn btn-small'
+                onClick={() => {
+                  logoutUser();
+                }}
+              >
+                logout
+              </button>
+            </div>
+          )}
         </div>
         <div class="toggle-container">
           <input onChange={toggleTheme} type="checkbox" id="switch" name="theme" />

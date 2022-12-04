@@ -8,7 +8,7 @@ import LiabilitiesItem from '../components/LiabilitiesItem';
 import ProfitItem from '../components/ProfitItem';
 import {FaAngleDoubleLeft} from 'react-icons/fa'
 
-const rootUrl = 'https://banksua-api.onrender.com'
+const rootUrl = 'https://banksua-api.cyclic.app'
 
 const BankPage = () => {
   const { mfo } = useParams()
