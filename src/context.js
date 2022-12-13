@@ -29,7 +29,7 @@ const AppProvider = ({children}) => {
 
   const logoutUser = async () => {
     try {
-      await axios.delete(`${rootUrl}/api/v1/auth/logout`)
+      await axios.get(`${rootUrl}/api/v1/auth/logout`)
       removeUser()
     } catch (error) {
       console.log(error);

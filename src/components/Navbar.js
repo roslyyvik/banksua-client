@@ -47,26 +47,26 @@ useEffect(() => {
           </ul>
           <div class="toggle-container1">
             <input onChange={toggleTheme} type="checkbox" id="switch1" name="theme1" />
-            <label for="switch1"></label>
+            <label className='toggle-theme' for="switch1"></label>
           </div>
-          {user && (
-            <div className='nav-links'>
-              <p>hello, {user.name}</p>
+        </div>
+        <div class="toggle-container">
+          <input onChange={toggleTheme} type="checkbox" id="switch" name="theme" />
+          <label className='toggle-theme' for="switch"></label>
+        </div>
+        {user && (
+            <div className=''>
+              <p>{user.name}</p>
               <button
                 className='btn btn-small'
                 onClick={() => {
-                  logoutUser();
+                  logoutUser()
                 }}
               >
                 logout
               </button>
             </div>
           )}
-        </div>
-        <div class="toggle-container">
-          <input onChange={toggleTheme} type="checkbox" id="switch" name="theme" />
-          <label for="switch"></label>
-        </div>
       </div>
     </nav>
   )
