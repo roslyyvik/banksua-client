@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useContext, useState, useEffect, useCallback } from 'react';
+import url from './utils/url'
+
 const AppContext = React.createContext();
-const rootUrl = 'https://banksua-api.cyclic.app'
 
 const AppProvider = ({children}) => {
 
@@ -19,7 +20,7 @@ const AppProvider = ({children}) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios(`${rootUrl}/api/v1/users/showMe`)
+      const { data } = await axios(`${url}/api/v1/users/showMe`)
       saveUser(data.user)
     } catch (error) {
       removeUser()
@@ -29,7 +30,7 @@ const AppProvider = ({children}) => {
 
   const logoutUser = async () => {
     try {
-      await axios.get(`${rootUrl}/api/v1/auth/logout`)
+      await axios.get(`${url}/api/v1/auth/logout`)
       removeUser()
     } catch (error) {
       console.log(error);
@@ -44,7 +45,7 @@ const AppProvider = ({children}) => {
   const getBanks = useCallback( async () => {
     setLoading(true)
     try {
-      const response = await axios(`${rootUrl}/api/v1/banks`)
+      const response = await axios(`${url}/api/v1/banks`)
       const { banks } = response.data
       if(banks){
         const newBanks = banks.map((item) => {

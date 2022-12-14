@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
-
-const rootUrl = 'https://banksua-api.cyclic.app'
+import url from '../utils/url'
 
 const Register = () => {
   const [ values, setValues ] = useState({
@@ -36,7 +35,7 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        `${rootUrl}/api/v1/auth/register`,
+        `${url}/api/v1/auth/register`,
         registerNewUser
       )
       setSuccess(true)

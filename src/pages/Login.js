@@ -6,7 +6,7 @@ import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
 import axios from 'axios'
-const rootUrl = 'https://banksua-api.cyclic.app'
+import url from '../utils/url'
 
 const Login = () => {
   const { saveUser } = useGlobalContext()
@@ -28,7 +28,7 @@ const Login = () => {
     const { email, password } = values;
     const loginUser = { email, password };
     try {
-      const { data } = await axios.post(`${rootUrl}/api/v1/auth/login`, loginUser)
+      const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser)
       setValues({ email: '', password: '', })
       showAlert({
         text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
