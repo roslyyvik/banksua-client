@@ -32,9 +32,7 @@ const App = () => {
           <Route path='/bank/:mfo' element={<BankPage />} />
         </Route>
         <Route path='/tables' element={<BanksTable />} />
-        <Route path='/user/verify-email' exact>
-          <Verify />
-        </Route>
+        <Route path='/user/verify-email' element={<Verify/>}/>
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
