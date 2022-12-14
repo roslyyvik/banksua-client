@@ -13,6 +13,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import ProtectedRoute from './pages/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
+import Verify from './pages/Verify'
 
 const App = () => {
   const toggleTheme = useToggleTheme()
@@ -31,7 +32,7 @@ const App = () => {
           <Route path='/bank/:mfo' element={<BankPage />} />
         </Route>
         <Route path='/tables' element={<BanksTable />} />
-        
+        <Route path='/user/verify-email' element={<Verify />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
