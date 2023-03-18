@@ -119,10 +119,10 @@ const BankPage = () => {
           </li>
           <li>КІЛЬКІСТЬ ВІДГУКІВ: {numOfReviews}</li>
           <li>
-            <Link to={`${rootUrl}/bank/${mfo}/reviews`}>reviews</Link>
+            <Link to={`/bank/${mfo}/reviews`}>reviews</Link>
           </li>
           <li>
-            <Link to={`${rootUrl}/addreview/${id}`}>Add review</Link>
+            <Link to={`/addreview/${id}`}>Add review</Link>
           </li>
         </ul>
         <div className='underline'></div>

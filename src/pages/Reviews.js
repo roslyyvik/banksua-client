@@ -33,7 +33,7 @@ const Reviews = () => {
   // handling Delete
     const handleDelete = async (id) => {
       await axios.delete(`${url}/api/v1/reviews/${id}`)
-      navigate(`${url}/reviewslist`)
+      navigate(`/reviewslist`)
     }
 
   if(loading){
@@ -70,7 +70,7 @@ const Reviews = () => {
             <td>{review.title}</td>
             <td>{review.comment}</td>
             <td>{review.rating}</td>
-            <td><Link to={`${url}/editreview/${review._id}`}>{<FaRegEdit/>}</Link></td>
+            <td><Link to={`/editreview/${review._id}`}>{<FaRegEdit/>}</Link></td>
             <td>
               <button
                 onClick={() => handleDelete(review._id)}

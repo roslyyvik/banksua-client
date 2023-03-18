@@ -90,7 +90,7 @@ const Profile = () => {
         setSuccess(true)
         showAlert({ text: data.msg, type: 'success' })
         saveUser(data.user)
-        navigate(`${url}/dashboard`)
+        navigate(`/dashboard`)
       } catch (error) {
         const { msg } = error.response.data
         showAlert({ text: msg || 'there was an error' })

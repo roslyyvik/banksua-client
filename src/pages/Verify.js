@@ -55,7 +55,7 @@ const VerifyPage = () => {
   return (
     <Wrapper className='page'>
       <h2>Account Confirmed</h2>
-      <Link to={`${url}/login`} className='btn'>
+      <Link to={`/login`} className='btn'>
         Please login
       </Link>
     </Wrapper>

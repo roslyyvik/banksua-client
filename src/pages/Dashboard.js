@@ -52,7 +52,7 @@ function Dashboard() {
         await axios.put(`${rootUrl}/api/v1/users/updateUserImage`, newUser)
         setValues({ pic: '' })
         // saveUser()
-        navigate(`${rootUrl}/profile`)
+        navigate(`/profile`)
     } catch (error) {
         console.log(error);
     }

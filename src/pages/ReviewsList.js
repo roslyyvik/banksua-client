@@ -53,7 +53,7 @@ const ReviewsList = () => {
                     <td>{ i + 1 }</td>
                     <td>{review.user.name}</td>
                     <td>
-                      <Link to={`${url}/bank/${review.bank.MFO}/reviews`}>
+                      <Link to={`/bank/${review.bank.MFO}/reviews`}>
                         {review.bank.SHORTNAME}
                       </Link>
                     </td>

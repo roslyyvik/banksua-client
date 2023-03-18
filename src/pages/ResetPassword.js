@@ -44,7 +44,7 @@ const ResetPassword = () => {
         type: 'success'
       })
       setTimeout(() => {
-        navigate(`${url}/login`)
+        navigate(`/login`)
       },3000)
     } catch (error) {
       showAlert({

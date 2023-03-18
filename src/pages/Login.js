@@ -36,7 +36,7 @@ function Login() {
       })
       setLoading(false)
       saveUser(data.user)
-      navigate(`${url}/dashboard`)
+      navigate(`/dashboard`)
     } catch (error) {
       showAlert({ text: error.response.data.msg })
       setLoading(false)
@@ -70,13 +70,13 @@ function Login() {
           </button>
           <p>
             Don't have an account?
-            <Link to={`${url}/register`} className='register-link'>
+            <Link to={`/register`} className='register-link'>
               Register
             </Link>
           </p>
           <p>
             Forgot your password?{' '}
-            <Link to={`${url}/forgot-password`} className='reset-link'>
+            <Link to={`/forgot-password`} className='reset-link'>
               Reset Password
             </Link>
           </p>

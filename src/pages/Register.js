@@ -89,7 +89,7 @@ function Register() {
             </button>
             <p>
               Already a have an account?
-              <Link to={`${url}/login`} className='login-link'>
+              <Link to={`/login`} className='login-link'>
                 Log In
               </Link>
             </p>

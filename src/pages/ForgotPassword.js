@@ -70,7 +70,7 @@ const ForgotPassword = () => {
               {loading ? 'Please wait ...' : 'Get reset Password Link'}
             </button>
             <p>
-              <Link to={`${rootUrl}/login`} className='login-link'>
+              <Link to={`/login`} className='login-link'>
                 Log In
               </Link>
             </p>

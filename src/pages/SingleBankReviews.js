@@ -89,7 +89,7 @@ const SingleBankReviews = () => {
         <ul className='single-bank-container'>
           <li>РЕЙТИНГ: {averageRating}</li>
           <li>КІЛЬКІСТЬ ВІДГУКІВ: {numOfReviews}</li>
-          <li><Link to={`${url}/addreview/${id}`}>create review</Link></li>
+          <li><Link to={`/addreview/${id}`}>create review</Link></li>
           <li>
               {numOfReviews > 0 ? <table>
                 <thead>
