@@ -6,9 +6,9 @@ import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
 import axios from 'axios'
-import url from '../utils/url'
+// import url from '../utils/url'
 
-const Login = () => {
+function Login() {
   const { saveUser } = useGlobalContext()
   const navigate = useNavigate()
   const [ values, setValues ] = useState({
@@ -28,7 +28,7 @@ const Login = () => {
     const { email, password } = values;
     const loginUser = { email, password };
     try {
-      const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser)
+      const { data } = await axios.post(`/api/v1/auth/login`, loginUser)
       setValues({ email: '', password: '', })
       showAlert({
         text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
@@ -40,11 +40,11 @@ const Login = () => {
     } catch (error) {
       showAlert({ text: error.response.data.msg })
       setLoading(false)
-    }   
+    }
   }
 
   return (
-    <>    
+    <>
     <Wrapper className='page'>
     {alert.show && (
         <div className={`alert alert-${alert.type}`}>{alert.text}</div>

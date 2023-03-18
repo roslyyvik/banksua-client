@@ -6,12 +6,12 @@ import { FaChartLine } from 'react-icons/fa'
 
 const BankItem = ({
   brand,
-  mfo, 
-  kod, 
-  np, 
-  adress, 
-  postindex, 
-  group, 
+  mfo,
+  kod,
+  np,
+  adress,
+  postindex,
+  group,
   assetstotal,
   liabilities,
   capitaltotal,
@@ -45,7 +45,7 @@ const bankItemTableChartAssets = bankItemChart(assetsTable)
 const bankItemTableChartLiabilit = bankItemChart(liabilitTable)
 const bankItemTableChartCapital = bankItemChart(capitalTable)
 const bankItemTableChartProfit = bankItemChart(profitTable)
-console.log(bankItemTableChartAssets);
+// console.log(bankItemTableChartAssets);
 
   return (
     <div className='banks-item-container'>

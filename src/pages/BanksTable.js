@@ -11,7 +11,7 @@ import moneyFormatter from '../utils/format'
 // import {TbArrowsSort,TbSortAscending,TbSortDescending} from 'react-icons/tb'
 
 const BanksTable = () => {
-  const {loading} = useGlobalContext()
+  const {isLoading} = useGlobalContext()
   const [ services, setServices ] = useState([])
   const { items, requestSort, sortConfig } = useSortableData(services)
   const [q, setQ] = useState("");
@@ -26,9 +26,9 @@ const [ filterParam, setFilterParam ] = useState('All')
   }
 
   useEffect(() => {
-    if (loading) return
+    if (isLoading) return
     setServices(data)
-  },[loading])
+  },[isLoading])
 
   const search = useCallback(
     elems => {

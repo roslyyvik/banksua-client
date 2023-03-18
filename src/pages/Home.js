@@ -10,28 +10,28 @@ import Alert from '../components/Alert'
 import {FaAngleDoubleRight} from 'react-icons/fa'
 
 const Home = () => {
-  const {banks, loading} = useGlobalContext()
+  const {banks, isLoading} = useGlobalContext()
   const [ services, setServices ] = useState([])
   const { search, q, setQ, filterParam, setFilterParam } = useFilterableData('')
 
   useEffect(() => {
-    if (loading) return
+    if (isLoading) return
     setServices(banks)
-  },[loading, banks])
+  },[isLoading, banks])
 
   const searchLength = search((services).map((item) => {
     return item
   }))
 
-  if(loading){
+  if(isLoading){
     return <Loading />
   }
   return (
     <main>
       <div className='section-title'>
-        <h1>{loading ? <Loading/> : (searchLength.length === 0 ? <Alert /> : `Кількість банківських установ: ${searchLength.length}`)}</h1>
+        <h1>{isLoading ? <Loading/> : (searchLength.length === 0 ? <Alert /> : `Кількість банківських установ: ${searchLength.length}`)}</h1>
       </div>
-      {!loading && (
+      {!isLoading && (
         <div className='input-section'>
           <MyInput
             type="text"
@@ -65,10 +65,10 @@ const Home = () => {
               )
             })
           }
-        </div>        
+        </div>
       </section>
     </main>
-    
+
   )
 }
 

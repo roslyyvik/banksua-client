@@ -4,14 +4,16 @@ import styled from 'styled-components'
 import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
-import url from '../utils/url'
+// import url from '../utils/url'
 
-const Register = () => {
+function Register() {
   const [ values, setValues ] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    pic:'',
   })
+  
   const {
     alert,
     showAlert,
@@ -30,16 +32,16 @@ const Register = () => {
     e.preventDefault()
     hideAlert()
     setLoading(true)
-    const { name, email, password } = values
-    const registerNewUser = { name, email, password }
+    const { name, email, password, pic:propic } = values
+    const registerNewUser = { name, email, password, propic }
 
     try {
       const { data } = await axios.post(
-        `${url}/api/v1/auth/register`,
+        `/api/v1/auth/register`,
         registerNewUser
       )
       setSuccess(true)
-      setValues({ name: '', email: '', password: '' })
+      setValues({ name: '', email: '', password: '', propic:'' })
       showAlert({ text: data.msg, type: 'success' })
     } catch (error) {
       const { msg } = error.response.data
@@ -55,7 +57,7 @@ const Register = () => {
           <div className={`alert alert-${alert.type}`}>{alert.text}</div>
         )}
         {!success && (
-          <form 
+          <form
             className={loading ? 'form form-loading': 'form'}
             onSubmit={onSubmit}
           >
