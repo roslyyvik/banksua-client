@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
+const rootUrl = 'https://banksua-api.cyclic.app'
+
 const AddReviews = () => {
   const navigate = useNavigate()
   const { id } = useParams()
@@ -38,7 +40,7 @@ const AddReviews = () => {
 
     try {
       const { data } = await axios.post(
-        `/api/v1/reviews`,
+        `${rootUrl}/api/v1/reviews`,
         addNewReview
       )
       setSuccess(true)

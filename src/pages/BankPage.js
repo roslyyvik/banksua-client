@@ -8,7 +8,7 @@ import LiabilitiesItem from '../components/LiabilitiesItem';
 import ProfitItem from '../components/ProfitItem';
 import {FaAngleDoubleLeft, FaStar} from 'react-icons/fa'
 
-// const rootUrl = 'https://banksua-api.cyclic.app'
+const rootUrl = 'https://banksua-api.cyclic.app'
 const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9"
@@ -27,7 +27,7 @@ const BankPage = () => {
     setLoading(true)
     async function getSingleBank() {
       try {
-        const response = await axios(`/api/v1/banks/${mfo}`)
+        const response = await axios(`${rootUrl}/api/v1/banks/${mfo}`)
         const {bank} = response.data
         if(bank){
           const {
@@ -119,10 +119,10 @@ const BankPage = () => {
           </li>
           <li>КІЛЬКІСТЬ ВІДГУКІВ: {numOfReviews}</li>
           <li>
-            <Link to={`/bank/${mfo}/reviews`}>reviews</Link>
+            <Link to={`${rootUrl}/bank/${mfo}/reviews`}>reviews</Link>
           </li>
           <li>
-            <Link to={`/addreview/${id}`}>Add review</Link>
+            <Link to={`${rootUrl}/addreview/${id}`}>Add review</Link>
           </li>
         </ul>
         <div className='underline'></div>
