@@ -6,7 +6,7 @@ import url from '../utils/url'
 const ProtectedRoute = () => {
   const { user } = useGlobalContext()
   if(!user) {
-    return <Navigate to={`${url}/login`} />
+    return <Navigate to={`/login`} />
   }
   return (
     <Outlet />

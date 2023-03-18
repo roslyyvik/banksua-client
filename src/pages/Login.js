@@ -70,13 +70,13 @@ function Login() {
           </button>
           <p>
             Don't have an account?
-            <Link to={`/register`} className='register-link'>
+            <Link to='/register' className='register-link'>
               Register
             </Link>
           </p>
           <p>
             Forgot your password?{' '}
-            <Link to={`/forgot-password`} className='reset-link'>
+            <Link to='/forgot-password' className='reset-link'>
               Reset Password
             </Link>
           </p>
