@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
+const rootUrl = 'https://banksua-api.cyclic.app'
+
 const EditReview = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -31,12 +33,12 @@ const EditReview = () => {
 
       try {
         const { data } = await axios.patch(
-          `/api/v1/reviews/${id}`,
+          `${rootUrl}/api/v1/reviews/${id}`,
           updatedReview
         )
         setSuccess(true)
         showAlert({ text: data.msg, type: 'success' })
-        navigate('/reviews')
+        navigate(`${rootUrl}/reviews`)
       } catch (error) {
         const { msg } = error.response.data
         showAlert({ text: msg || 'there was an error' })
@@ -48,7 +50,7 @@ const EditReview = () => {
     setLoading(true)
     async function getSingleReview () {
       try {
-        const response = await axios(`/api/v1/reviews/${id}`)
+        const response = await axios(`${rootUrl}/api/v1/reviews/${id}`)
         const {review} = response.data
         setRating(review.rating)
         setTitle(review.title)

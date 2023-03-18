@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
-// import url from '../utils/url'
+import url from '../utils/url'
 
 function Register() {
   const [ values, setValues ] = useState({
@@ -37,7 +37,7 @@ function Register() {
 
     try {
       const { data } = await axios.post(
-        `/api/v1/auth/register`,
+        `${url}/api/v1/auth/register`,
         registerNewUser
       )
       setSuccess(true)
@@ -89,7 +89,7 @@ function Register() {
             </button>
             <p>
               Already a have an account?
-              <Link to='/login' className='login-link'>
+              <Link to={`${url}/login`} className='login-link'>
                 Log In
               </Link>
             </p>

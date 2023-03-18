@@ -6,6 +6,8 @@ import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 import axios from 'axios'
 
+import url from '../utils/url'
+
 const Profile = () => {
   const {user, saveUser} = useGlobalContext()
   // const { name, userId, email, role, pic } = user
@@ -80,7 +82,7 @@ const Profile = () => {
        try {
 
         const { data } = await axios.put(
-          `/api/v1/users/updateUser`,
+          `${url}/api/v1/users/updateUser`,
           updatedUser
         )
         console.log(data);
@@ -88,7 +90,7 @@ const Profile = () => {
         setSuccess(true)
         showAlert({ text: data.msg, type: 'success' })
         saveUser(data.user)
-        navigate('/dashboard')
+        navigate(`${url}/dashboard`)
       } catch (error) {
         const { msg } = error.response.data
         showAlert({ text: msg || 'there was an error' })

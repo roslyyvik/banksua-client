@@ -5,6 +5,8 @@ import axios from 'axios'
 import FormRow from '../components/FormRow'
 import useLocalState from '../utils/localState'
 
+import url from '../utils/url'
+
 function useQuery() {
   return new URLSearchParams(useLocation().search)
 }
@@ -30,7 +32,7 @@ const ResetPassword = () => {
       return
     }
     try {
-      const { data } = await axios.post('/api/v1/auth/reset-password',{
+      const { data } = await axios.post(`${url}/api/v1/auth/reset-password`,{
         password,
         token: query.get('token'),
         email: query.get('email')
@@ -42,7 +44,7 @@ const ResetPassword = () => {
         type: 'success'
       })
       setTimeout(() => {
-        navigate('/login')
+        navigate(`${url}/login`)
       },3000)
     } catch (error) {
       showAlert({

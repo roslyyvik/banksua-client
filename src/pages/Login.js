@@ -6,7 +6,7 @@ import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
 import axios from 'axios'
-// import url from '../utils/url'
+import url from '../utils/url'
 
 function Login() {
   const { saveUser } = useGlobalContext()
@@ -28,7 +28,7 @@ function Login() {
     const { email, password } = values;
     const loginUser = { email, password };
     try {
-      const { data } = await axios.post(`/api/v1/auth/login`, loginUser)
+      const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser)
       setValues({ email: '', password: '', })
       showAlert({
         text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
@@ -36,7 +36,7 @@ function Login() {
       })
       setLoading(false)
       saveUser(data.user)
-      navigate('/dashboard')
+      navigate(`${url}/dashboard`)
     } catch (error) {
       showAlert({ text: error.response.data.msg })
       setLoading(false)
@@ -70,13 +70,13 @@ function Login() {
           </button>
           <p>
             Don't have an account?
-            <Link to='/register' className='register-link'>
+            <Link to={`${url}/register`} className='register-link'>
               Register
             </Link>
           </p>
           <p>
             Forgot your password?{' '}
-            <Link to='/forgot-password' className='reset-link'>
+            <Link to={`${url}/forgot-password`} className='reset-link'>
               Reset Password
             </Link>
           </p>

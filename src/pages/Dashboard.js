@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { useGlobalContext } from "../context"
 import { useNavigate } from 'react-router-dom'
 
+const rootUrl = 'https://banksua-api.cyclic.app'
+
 function Dashboard() {
   const [ count, setCount ] = useState(0)
   const [ reviews, setReviews ] = useState([])
@@ -19,7 +21,7 @@ function Dashboard() {
   useEffect(() => {
     async function getSingleUserReviews () {
       try {
-        const response = await axios(`/api/v1/users/${userId}/reviews`)
+        const response = await axios(`${rootUrl}/api/v1/users/${userId}/reviews`)
         const data = response.data
         setCount(data.count)
         setReviews(data.reviews)
@@ -43,14 +45,14 @@ function Dashboard() {
         // formData.append("name", values.name)
         // formData.append("price", values.price)
 
-        const result = await axios.post('/api/v1/users/uploadUserImage', formData)
+        const result = await axios.post(`${rootUrl}/api/v1/users/uploadUserImage`, formData)
         const { image } = result.data
         console.log(result.data);
         const newUser = { pic: image.src}
-        await axios.put('/api/v1/users/updateUserImage', newUser)
+        await axios.put(`${rootUrl}/api/v1/users/updateUserImage`, newUser)
         setValues({ pic: '' })
         // saveUser()
-        navigate('/profile')
+        navigate(`${rootUrl}/profile`)
     } catch (error) {
         console.log(error);
     }

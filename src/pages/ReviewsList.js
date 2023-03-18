@@ -3,6 +3,8 @@ import axios from 'axios'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
 
+import url from '../utils/url'
+
 const ReviewsList = () => {
   const [ loading, setLoading ] = useState(false)
   const [ reviewsList, setReviewsList ] = useState([])
@@ -11,7 +13,7 @@ const ReviewsList = () => {
     setLoading(true)
     async function getReviewsList () {
       try {
-        const response = await axios(`/api/v1/reviews/`)
+        const response = await axios(`${url}/api/v1/reviews/`)
         const { reviews } = response.data
         setReviewsList(reviews)
       } catch (error) {
@@ -51,7 +53,7 @@ const ReviewsList = () => {
                     <td>{ i + 1 }</td>
                     <td>{review.user.name}</td>
                     <td>
-                      <Link to={`/bank/${review.bank.MFO}/reviews`}>
+                      <Link to={`${url}/bank/${review.bank.MFO}/reviews`}>
                         {review.bank.SHORTNAME}
                       </Link>
                     </td>

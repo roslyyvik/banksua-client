@@ -5,6 +5,8 @@ import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
 
+const rootUrl = 'https://banksua-api.cyclic.app'
+
 const ForgotPassword = () => {
   const [ email, setEmail ] = useState('')
   const {
@@ -33,7 +35,7 @@ const ForgotPassword = () => {
       return
     }
     try {
-      const { data } = await axios.post('/api/v1/auth/forgot-password',{
+      const { data } = await axios.post(`${rootUrl}/api/v1/auth/forgot-password`,{
         email,
       })
       showAlert({ text: data.msg, type: 'success' });
@@ -68,7 +70,7 @@ const ForgotPassword = () => {
               {loading ? 'Please wait ...' : 'Get reset Password Link'}
             </button>
             <p>
-              <Link to='/login' className='login-link'>
+              <Link to={`${rootUrl}/login`} className='login-link'>
                 Log In
               </Link>
             </p>
