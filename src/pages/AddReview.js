@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
-const rootUrl = 'https://banksua-api.cyclic.app'
+const rootUrl = 'https://banksua-api.onrender.com'
 
 const AddReviews = () => {
   const navigate = useNavigate()

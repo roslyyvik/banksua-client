@@ -5,7 +5,7 @@ import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
 
-const rootUrl = 'https://banksua-api.cyclic.app'
+const rootUrl = 'https://banksua-api.onrender.com'
 
 const ForgotPassword = () => {
   const [ email, setEmail ] = useState('')

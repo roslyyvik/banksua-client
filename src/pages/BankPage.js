@@ -8,7 +8,7 @@ import LiabilitiesItem from '../components/LiabilitiesItem';
 import ProfitItem from '../components/ProfitItem';
 import {FaAngleDoubleLeft, FaStar} from 'react-icons/fa'
 
-const rootUrl = 'https://banksua-api.cyclic.app'
+const rootUrl = 'https://banksua-api.onrender.com'
 const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9"

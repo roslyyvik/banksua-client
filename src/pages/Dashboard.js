@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { useGlobalContext } from "../context"
 import { useNavigate } from 'react-router-dom'
 
-const rootUrl = 'https://banksua-api.cyclic.app'
+const rootUrl = 'https://banksua-api.onrender.com'
 
 function Dashboard() {
   const [ count, setCount ] = useState(0)
