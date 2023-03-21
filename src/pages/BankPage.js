@@ -8,7 +8,7 @@ import LiabilitiesItem from '../components/LiabilitiesItem';
 import ProfitItem from '../components/ProfitItem';
 import {FaAngleDoubleLeft, FaStar} from 'react-icons/fa'
 
-// const rootUrl = 'https://banksua-api.onrender.com'
+const url = 'https://banksua-api.onrender.com'
 const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9"
@@ -27,7 +27,7 @@ const BankPage = () => {
     setLoading(true)
     async function getSingleBank() {
       try {
-        const response = await axios(`/api/v1/banks/${mfo}`)
+        const response = await axios(`${url}/api/v1/banks/${mfo}`)
         const {bank} = response.data
         if(bank){
           const {

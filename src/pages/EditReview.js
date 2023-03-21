@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
-// const rootUrl = 'https://banksua-api.onrender.com'
+const url = 'https://banksua-api.onrender.com'
 
 const EditReview = () => {
   const { id } = useParams()
@@ -33,7 +33,7 @@ const EditReview = () => {
 
       try {
         const { data } = await axios.patch(
-          `/api/v1/reviews/${id}`,
+          `${url}/api/v1/reviews/${id}`,
           updatedReview
         )
         setSuccess(true)
@@ -50,7 +50,7 @@ const EditReview = () => {
     setLoading(true)
     async function getSingleReview () {
       try {
-        const response = await axios(`/api/v1/reviews/${id}`)
+        const response = await axios(`${url}/api/v1/reviews/${id}`)
         const {review} = response.data
         setRating(review.rating)
         setTitle(review.title)
