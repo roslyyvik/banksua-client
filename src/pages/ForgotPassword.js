@@ -5,7 +5,7 @@ import FormRow from '../components/FormRow'
 import axios from 'axios'
 import useLocalState from '../utils/localState'
 
-const rootUrl = 'https://banksua-api.onrender.com'
+// const rootUrl = 'https://banksua-api.onrender.com'
 
 const ForgotPassword = () => {
   const [ email, setEmail ] = useState('')
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
       return
     }
     try {
-      const { data } = await axios.post(`${rootUrl}/api/v1/auth/forgot-password`,{
+      const { data } = await axios.post(`/api/v1/auth/forgot-password`,{
         email,
       })
       showAlert({ text: data.msg, type: 'success' });

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useContext, useState, useEffect, useCallback } from 'react';
-import url from './utils/url'
+// import url from './utils/url'
 
 const AppContext = React.createContext();
 
@@ -20,7 +20,7 @@ const AppProvider = ({children}) => {
 
   const fetchUser = async () => {
     try {
-      const {data} = await axios(`${url}/api/v1/users/showMe`)
+      const {data} = await axios(`/api/v1/users/showMe`)
       saveUser(data.user)
     } catch (error) {
       removeUser()
@@ -30,7 +30,7 @@ const AppProvider = ({children}) => {
 
   const logoutUser = async () => {
     try {
-      await axios.delete(`${url}/api/v1/auth/logout`)
+      await axios.delete(`/api/v1/auth/logout`)
       removeUser()
     } catch (error) {
       console.log(error);
@@ -45,7 +45,7 @@ const AppProvider = ({children}) => {
   const getBanks = useCallback( async () => {
     setIsLoading(true)
     try {
-      const response = await axios(`${url}/api/v1/banks`)
+      const response = await axios(`/api/v1/banks`)
       const { banks } = response.data
       if(banks){
         const newBanks = banks.map((item) => {

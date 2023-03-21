@@ -68,7 +68,7 @@ const Navbar = ({ toggleTheme }) => {
                   <Link to='/about'>про</Link>
                 </li>
                 <li>
-                  <div class="toggle-container">
+                  <div className="toggle-container">
 
               {user ? (
                 <div className='user-dropdown' ref={ref}>
