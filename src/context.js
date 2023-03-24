@@ -20,7 +20,7 @@ const AppProvider = ({children}) => {
 
   const fetchUser = async () => {
     try {
-      const {data} = await axios(`${url}/api/v1/users/showMe`)
+      const {data} = await axios(`/api/v1/users/showMe`)
       saveUser(data.user)
     } catch (error) {
       removeUser()
@@ -30,7 +30,7 @@ const AppProvider = ({children}) => {
 
   const logoutUser = async () => {
     try {
-      await axios.delete(`${url}/api/v1/auth/logout`)
+      await axios.delete(`/api/v1/auth/logout`)
       removeUser()
     } catch (error) {
       console.log(error);
@@ -42,60 +42,60 @@ const AppProvider = ({children}) => {
     //eslint-disable-next-line
   },[])
 
-  const getBanks = useCallback( async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios(`${url}/api/v1/banks`)
-      const { banks } = response.data
-      if(banks){
-        const newBanks = banks.map((item) => {
-          const {
-            MFO,
-            SHORTNAME,
-            KOD_EDRPOU,
-            group,
-            NP,
-            ADRESS,
-            P_IND,
-            assetstotal,
-            liabilities,
-            capitaltotal,
-            profittotal,
-          } = item
-          return {
-            mfo: MFO,
-            brand: SHORTNAME,
-            kod: KOD_EDRPOU,
-            group,
-            np: NP,
-            adress: ADRESS,
-            postindex: P_IND,
-            assetstotal,
-            liabilities,
-            capitaltotal,
-            profittotal,
-          }
-        })
-        setBanks(newBanks)
-      } else {
-        setBanks([])
-      }
-      setIsLoading(false)
-    } catch (error) {
-      console.log(error)
-      setIsLoading(false)
-    }
-  },[])
+  // const getBanks = useCallback( async () => {
+  //   setIsLoading(true)
+  //   try {
+  //     const response = await axios(`/api/v1/banks`)
+  //     const { banks } = response.data
+  //     if(banks){
+  //       const newBanks = banks.map((item) => {
+  //         const {
+  //           MFO,
+  //           SHORTNAME,
+  //           KOD_EDRPOU,
+  //           group,
+  //           NP,
+  //           ADRESS,
+  //           P_IND,
+  //           assetstotal,
+  //           liabilities,
+  //           capitaltotal,
+  //           profittotal,
+  //         } = item
+  //         return {
+  //           mfo: MFO,
+  //           brand: SHORTNAME,
+  //           kod: KOD_EDRPOU,
+  //           group,
+  //           np: NP,
+  //           adress: ADRESS,
+  //           postindex: P_IND,
+  //           assetstotal,
+  //           liabilities,
+  //           capitaltotal,
+  //           profittotal,
+  //         }
+  //       })
+  //       setBanks(newBanks)
+  //     } else {
+  //       setBanks([])
+  //     }
+  //     setIsLoading(false)
+  //   } catch (error) {
+  //     console.log(error)
+  //     setIsLoading(false)
+  //   }
+  // },[])
 
-  useEffect(()=>{
-    getBanks()
-  },[getBanks])
+  // useEffect(()=>{
+  //   getBanks()
+  // },[getBanks])
 
   return (
     <AppContext.Provider
       value={{
         isLoading,
-        banks,
+        // banks,
         saveUser,
         user,
         logoutUser
