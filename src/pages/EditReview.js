@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import useLocalState from '../utils/localState'
 import FormRow from '../components/FormRow'
 
-const url = 'https://banksua-api.onrender.com'
+import url from '../utils/url'
 
 const EditReview = () => {
   const { id } = useParams()

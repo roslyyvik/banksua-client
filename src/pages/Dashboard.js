@@ -3,8 +3,7 @@ import axios from 'axios';
 import styled from "styled-components"
 import { useGlobalContext } from "../context"
 import { useNavigate } from 'react-router-dom'
-
-const url = 'https://banksua-api.onrender.com'
+import url from '../utils/url'
 
 function Dashboard() {
   const [ count, setCount ] = useState(0)
